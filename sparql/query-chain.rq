@@ -1,0 +1,7 @@
+PREFIX : <http://example.org/java-ontology#>
+
+SELECT ?source ?target
+WHERE {
+  ?source :causes ?target .
+}
+ORDER BY ?source

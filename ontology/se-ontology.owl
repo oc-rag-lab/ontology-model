@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/java-ontology#"
+     xml:base="http://example.org/java-ontology"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+    <owl:Ontology rdf:about="http://example.org/java-ontology"/>
+
+    <!-- ROOT -->
+    <owl:Class rdf:about="#JavaConcept"/>
+
+    <!-- Language Core -->
+    <owl:Class rdf:about="#LanguageCore">
+        <rdfs:subClassOf rdf:resource="#JavaConcept"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#PrimitiveType">
+        <rdfs:subClassOf rdf:resource="#LanguageCore"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#ReferenceType">
+        <rdfs:subClassOf rdf:resource="#LanguageCore"/>
+    </owl:Class>
+
+    <!-- OOP -->
+    <owl:Class rdf:about="#OOPConcept">
+        <rdfs:subClassOf rdf:resource="#JavaConcept"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#Encapsulation">
+        <rdfs:subClassOf rdf:resource="#OOPConcept"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#Inheritance">
+        <rdfs:subClassOf rdf:resource="#OOPConcept"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#Polymorphism">
+        <rdfs:subClassOf rdf:resource="#OOPConcept"/>
+    </owl:Class>
+
+    <!-- Concurrency -->
+    <owl:Class rdf:about="#Concurrency">
+        <rdfs:subClassOf rdf:resource="#JavaConcept"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#Thread">
+        <rdfs:subClassOf rdf:resource="#Concurrency"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#Deadlock">
+        <rdfs:subClassOf rdf:resource="#Concurrency"/>
+    </owl:Class>
+
+    <!-- JVM -->
+    <owl:Class rdf:about="#JVMInternals">
+        <rdfs:subClassOf rdf:resource="#JavaConcept"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#GarbageCollection">
+        <rdfs:subClassOf rdf:resource="#JVMInternals"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#HeapMemory">
+        <rdfs:subClassOf rdf:resource="#JVMInternals"/>
+    </owl:Class>
+
+    <!-- Collections -->
+    <owl:Class rdf:about="#CollectionsFramework">
+        <rdfs:subClassOf rdf:resource="#JavaConcept"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#List">
+        <rdfs:subClassOf rdf:resource="#CollectionsFramework"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#ArrayList">
+        <rdfs:subClassOf rdf:resource="#List"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#Map">
+        <rdfs:subClassOf rdf:resource="#CollectionsFramework"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#HashMap">
+        <rdfs:subClassOf rdf:resource="#Map"/>
+    </owl:Class>
+
+    <!-- Exception -->
+    <owl:Class rdf:about="#ExceptionHandling">
+        <rdfs:subClassOf rdf:resource="#JavaConcept"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#UncheckedException">
+        <rdfs:subClassOf rdf:resource="#ExceptionHandling"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#NullPointerException">
+        <rdfs:subClassOf rdf:resource="#UncheckedException"/>
+    </owl:Class>
+
+    <!-- Framework -->
+    <owl:Class rdf:about="#Framework">
+        <rdfs:subClassOf rdf:resource="#JavaConcept"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#SpringFramework">
+        <rdfs:subClassOf rdf:resource="#Framework"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#HibernateFramework">
+        <rdfs:subClassOf rdf:resource="#Framework"/>
+    </owl:Class>
+
+    <!-- Architecture -->
+    <owl:Class rdf:about="#ArchitecturePattern">
+        <rdfs:subClassOf rdf:resource="#JavaConcept"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#CleanArchitecture">
+        <rdfs:subClassOf rdf:resource="#ArchitecturePattern"/>
+    </owl:Class>
+
+    <owl:ObjectProperty rdf:about="#dependsOn">
+        <rdfs:domain rdf:resource="#JavaConcept"/>
+        <rdfs:range rdf:resource="#JavaConcept"/>
+    </owl:ObjectProperty>
+
+</rdf:RDF>

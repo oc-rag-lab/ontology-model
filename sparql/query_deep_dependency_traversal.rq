@@ -1,0 +1,6 @@
+PREFIX : <http://example.org/java-ontology#>
+
+SELECT ?a ?b
+WHERE {
+  ?a :dependsOn+ ?b .
+}

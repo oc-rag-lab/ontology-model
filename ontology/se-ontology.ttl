@@ -1,0 +1,200 @@
+@prefix : <http://example.org/java-ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:JavaOntology rdf:type owl:Ontology .
+
+############################
+# ROOT
+############################
+
+:JavaConcept rdf:type owl:Class .
+
+############################
+# LANGUAGE CORE
+############################
+
+:LanguageCore rdf:type owl:Class ;
+    rdfs:subClassOf :JavaConcept .
+
+:PrimitiveType rdf:type owl:Class ;
+    rdfs:subClassOf :LanguageCore .
+
+:ReferenceType rdf:type owl:Class ;
+    rdfs:subClassOf :LanguageCore .
+
+############################
+# OOP
+############################
+
+:OOPConcept rdf:type owl:Class ;
+    rdfs:subClassOf :JavaConcept .
+
+:Encapsulation rdf:type owl:Class ;
+    rdfs:subClassOf :OOPConcept .
+
+:Inheritance rdf:type owl:Class ;
+    rdfs:subClassOf :OOPConcept .
+
+:Polymorphism rdf:type owl:Class ;
+    rdfs:subClassOf :OOPConcept .
+
+:Abstraction rdf:type owl:Class ;
+    rdfs:subClassOf :OOPConcept .
+
+############################
+# CONCURRENCY
+############################
+
+:Concurrency rdf:type owl:Class ;
+    rdfs:subClassOf :JavaConcept .
+
+:Thread rdf:type owl:Class ;
+    rdfs:subClassOf :Concurrency .
+
+:ExecutorService rdf:type owl:Class ;
+    rdfs:subClassOf :Concurrency .
+
+:SynchronizationIssue rdf:type owl:Class ;
+    rdfs:subClassOf :Concurrency .
+
+:Deadlock rdf:type owl:Class ;
+    rdfs:subClassOf :SynchronizationIssue .
+
+############################
+# JVM
+############################
+
+:JVMInternals rdf:type owl:Class ;
+    rdfs:subClassOf :JavaConcept .
+
+:GarbageCollection rdf:type owl:Class ;
+    rdfs:subClassOf :JVMInternals .
+
+:HeapMemory rdf:type owl:Class ;
+    rdfs:subClassOf :JVMInternals .
+
+:StackMemory rdf:type owl:Class ;
+    rdfs:subClassOf :JVMInternals .
+
+############################
+# COLLECTIONS
+############################
+
+:CollectionsFramework rdf:type owl:Class ;
+    rdfs:subClassOf :JavaConcept .
+
+:List rdf:type owl:Class ;
+    rdfs:subClassOf :CollectionsFramework .
+
+:Set rdf:type owl:Class ;
+    rdfs:subClassOf :CollectionsFramework .
+
+:Map rdf:type owl:Class ;
+    rdfs:subClassOf :CollectionsFramework .
+
+:ArrayList rdf:type owl:Class ;
+    rdfs:subClassOf :List .
+
+:HashMap rdf:type owl:Class ;
+    rdfs:subClassOf :Map .
+
+############################
+# EXCEPTION
+############################
+
+:ExceptionHandling rdf:type owl:Class ;
+    rdfs:subClassOf :JavaConcept .
+
+:CheckedException rdf:type owl:Class ;
+    rdfs:subClassOf :ExceptionHandling .
+
+:UncheckedException rdf:type owl:Class ;
+    rdfs:subClassOf :ExceptionHandling .
+
+:NullPointerException rdf:type owl:Class ;
+    rdfs:subClassOf :UncheckedException .
+
+############################
+# FRAMEWORK
+############################
+
+:Framework rdf:type owl:Class ;
+    rdfs:subClassOf :JavaConcept .
+
+:SpringFramework rdf:type owl:Class ;
+    rdfs:subClassOf :Framework .
+
+:HibernateFramework rdf:type owl:Class ;
+    rdfs:subClassOf :Framework .
+
+############################
+# ORM
+############################
+
+:ORMConcept rdf:type owl:Class ;
+    rdfs:subClassOf :JavaConcept .
+
+:Entity rdf:type owl:Class ;
+    rdfs:subClassOf :ORMConcept .
+
+:FetchType rdf:type owl:Class ;
+    rdfs:subClassOf :ORMConcept .
+
+:NPlusOneQuery rdf:type owl:Class ;
+    rdfs:subClassOf :JavaConcept .
+
+############################
+# DESIGN PATTERN
+############################
+
+:DesignPattern rdf:type owl:Class ;
+    rdfs:subClassOf :JavaConcept .
+
+:Singleton rdf:type owl:Class ;
+    rdfs:subClassOf :DesignPattern .
+
+:FactoryPattern rdf:type owl:Class ;
+    rdfs:subClassOf :DesignPattern .
+
+:RepositoryPattern rdf:type owl:Class ;
+    rdfs:subClassOf :DesignPattern .
+
+############################
+# ARCHITECTURE
+############################
+
+:ArchitecturePattern rdf:type owl:Class ;
+    rdfs:subClassOf :JavaConcept .
+
+:CleanArchitecture rdf:type owl:Class ;
+    rdfs:subClassOf :ArchitecturePattern .
+
+:Microservices rdf:type owl:Class ;
+    rdfs:subClassOf :ArchitecturePattern .
+
+############################
+# OBJECT PROPERTIES
+############################
+
+:causes rdf:type owl:ObjectProperty ;
+    rdfs:domain :JavaConcept ;
+    rdfs:range :JavaConcept .
+
+:dependsOn rdf:type owl:ObjectProperty ;
+    rdfs:domain :JavaConcept ;
+    rdfs:range :JavaConcept .
+
+:implementedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain :ArchitecturePattern ;
+    rdfs:range :Framework .
+
+############################
+# SAMPLE RELATIONSHIPS
+############################
+
+:NPlusOneQuery :causes :PerformanceIssue .
+:CleanArchitecture :implementedBy :SpringFramework .
+:Deadlock :causes :PerformanceIssue .

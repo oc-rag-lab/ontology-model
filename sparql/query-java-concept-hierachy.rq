@@ -1,0 +1,8 @@
+PREFIX : <http://example.org/java-ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?concept
+WHERE {
+  ?concept rdfs:subClassOf* :JavaConcept .
+}
+ORDER BY ?concept
